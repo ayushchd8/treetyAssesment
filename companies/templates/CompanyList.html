@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <title>{{title}}</title>
+    </head>
+    <body>
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for company name.." title="Type in a name">
+      <a href="/home/">Back to home</a>
+      <div class="table__div">
+        <br><br>
+          <table border='1' id="data">
+              <tr>
+                  <th>Exchange</th>
+                  <th>Symbol</th>
+                  <th>Company Name</th>
+                  <th>Sector</th>
+                  <th>Industry</th>
+                  <th>Currentprice</th>
+                  <th>Marketcap</th>
+                  <th>Ebitda</th>
+                  <th>Revenuegrowth</th>
+                  <th>City</th>
+                  <th>State</th>
+                  <th>Country</th>
+                  <th>Fulltimeemployees</th>
+                  <th>Longbusinesssummary</th>
+                  <th>Weight</th>
+              </tr>
+              {% for x in obj %}
+                <tr>
+                  <td>{{ x.Exchange }}</td>
+                  <td>{{ x.Symbol }}</td>
+                  <td>{{x.Shortname}}</td>
+                  <td>{{ x.Sector }}</td>
+                  <td>{{ x.Industry }}</td>
+                  <td>{{ x.Currentprice }}</td>
+                  <td>{{ x.Marketcap }}</td>
+                  <td>{{ x.Ebitda }}</td>
+                  <td>{{ x.Revenuegrowth }}</td>
+                  <td>{{ x.City }}</td>
+                  <td>{{ x.State }}</td>
+                  <td>{{ x.Country }}</td>
+                  <td>{{ x.Fulltimeemployees }}</td>
+                  <td><p class="Longbusinesssummary">{{ x.Longbusinesssummary }}</p></td>
+                  <td>{{ x.Weight }}</td>
+
+                </tr>
+              {% endfor %}
+            </table>
+      </div>
+      
+    </body>
+
+    <style>
+      * {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#data {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#data th, #data td {
+  text-align: left;
+  padding: 12px;
+}
+
+#data tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#data tr.header, #data tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table__div{
+  overflow-x: auto;
+}
+
+th:nth-child(14){ width:60%; }
+td:nth-child(14){
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  
+
+}
+    </style>
+
+    <script>
+      function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("data");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[2];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      }
+
+      
+      
+      </script>
+</html>

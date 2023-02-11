@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <!-- <title>Select the options below</title> -->
+    </head>
+    <body>
+        <h1>Add Company</h1><br>
+        <form action="/savecompany/" method="POST">
+            {% csrf_token %}
+            <label for="Exchange">Exchange:</label><br>
+            <input type="text" id="Exchange" name="Exchange"><br>
+            <label for="Symbol">Symbol:</label><br>
+            <input type="text" id="Symbol" name="Symbol"><br>
+            <label for="Shortname">Shortname:</label><br>
+            <input type="text" id="Shortname" name="Shortname" required><br>
+            <label for="Longname">Longname:</label><br>
+            <input type="text" id="Longname" name="Longname"><br>
+            <label for="Sector">Sector:</label><br>
+            <input type="text" id="Sector" name="Sector"><br>
+            <label for="Industry">Industry:</label><br>
+            <input type="text" id="Industry" name="Industry"><br>
+            <label for="Currentprice">Currentprice:</label><br>
+            <input type="number" id="Currentprice" name="Currentprice"><br>
+            <label for="Marketcap">Marketcap:</label><br>
+            <input type="number" id="Marketcap" name="Marketcap"><br>
+            <label for="Ebitda">Ebitda:</label><br>
+            <input type="number" id="Ebitda" name="Ebitda"><br>
+            <label for="Revenuegrowth">Revenuegrowth:</label><br>
+            <input type="number" id="Revenuegrowth" name="Revenuegrowth"><br>
+            <label for="City">City:</label><br>
+            <input type="text" id="City" name="City"><br>
+            <label for="State">State:</label><br>
+            <input type="text" id="State" name="State"><br>
+            <label for="Country">Country:</label><br>
+            <input type="text" id="Country" name="Country" required><br>
+            <label for="Fulltimeemployees">Fulltimeemployees:</label><br>
+            <input type="number" id="Fulltimeemployees" name="Fulltimeemployees"><br>
+            <label for="Longbusinesssummary">Longbusinesssummary:</label><br>
+            <input type="text" id="Longbusinesssummary" name="Longbusinesssummary"><br>
+            <label for="Weight">Weight:</label><br>
+            <input type="text" id="Weight" name="Weight"><br><br>
+            <input type="submit" value="Submit">
+            <a href="/home/">Back to home</a>
+        </form>
+    </body>
+
+<style>
+    input {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(226, 130, 130);
+    padding: 11px 19px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: cadetblue;
+  cursor: pointer;
+}
+
+</style>
+</html>
